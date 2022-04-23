@@ -1,0 +1,6 @@
+Set-ExecutionPolicy RemoteSigned   mettere T e invio
+
+cd C:\Users\pkmnp\Desktop\Progetto_PSM_digitale\script    invio
+
+./mem10.ps1    per far partire lo script
+
