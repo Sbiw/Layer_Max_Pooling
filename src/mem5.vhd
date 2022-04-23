@@ -21,7 +21,7 @@ end mem5;
 architecture bo of mem5 is
 
     signal mem_s  : memory_t(num-1 downto 0)(depth-1 downto 0):= (others=>(others=>'0'));
-	signal i 	  : natural := 0;
+	signal i 	  : integer := 0;
 
 begin
 
@@ -31,11 +31,11 @@ begin
     begin
 
         if(rst'event and rst='0') then
-            i   <= 0;
+            i   <= -1;
         end if;	
 
         if(clk'event and clk='1') then
-            if (i <= 24) then 
+            if (i <= 24 and i >= 0) then 
                 mem_s(i) <= out_max;
                 i <= i + 1; 
             else
