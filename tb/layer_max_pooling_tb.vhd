@@ -55,7 +55,17 @@ architecture beh of layer_max_pooling_tb is
 		stimulus : process 
 			begin
                 entrate_ext <=(others=>(others=>'0')); 
-                wait for 500 ns;
+                wait for 30 ns;
+				entrate_ext <= (others => ("00110011"));    --0x33   0d51 
+                wait for 100 ns;
+				entrate_ext <= (("10000000"), ("00000001"), ("00000000"), ("00000000"), ("00000000"),
+				                ("00000000"), ("00000000"), ("00000000"), ("00000000"), ("00000000"),  
+				                ("00000010"), ("00000100"), others => "00000000");
+				wait for 550 ns;
+                entrate_ext <= (("00000001"), ("00100011"), ("01000101"), ("01100111"), ("10001001"), 
+				                ("10101011"), ("11001101"), ("11101111"), ("00010010"), ("00110100"), 
+					            ("01010110"), ("01111000"), others => "00000000");
+                wait for 550 ns;
 			    testing <= false;
 		end process;
 end beh;
